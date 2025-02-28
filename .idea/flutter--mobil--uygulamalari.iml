@@ -6,6 +6,9 @@
       <excludeFolder url="file://$MODULE_DIR$/urunler_app/build" />
       <excludeFolder url="file://$MODULE_DIR$/urunler_app/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/urunler_app/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/filmler_app/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/filmler_app/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/filmler_app/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
