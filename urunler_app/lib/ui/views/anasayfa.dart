@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:urunler_app/ui/views/detay_sayfa.dart';
 
 import '../../data/entity/urunler.dart';
 
@@ -47,26 +48,31 @@ class _AnasayfaState extends State<Anasayfa> {
               itemCount: urunlerListesi!.length,
               itemBuilder: (context,indeks){
                 var urun = urunlerListesi[indeks];
-                return Card(
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: SizedBox(width: 128, height: 128,
-                            child: Image.asset("resimler/${urun.resim}")),
-                      ),
-                      Column(crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(urun.ad),
-                          const SizedBox(height: 10,),
-                          Text("${urun.fiyat} ₺", style: const TextStyle(fontSize: 20),),
-                          const SizedBox(height: 10,),
-                          ElevatedButton(onPressed: (){
-                            print("${urun.ad} sepete eklendi");
-                          }, child: const Text("Sepet Ekle"),)
-                        ],
-                      )
-                    ],
+                return GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => DetaySayfa(urun: urun) ));
+                  },
+                  child: Card(
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(width: 128, height: 128,
+                              child: Image.asset("resimler/${urun.resim}")),
+                        ),
+                        Column(crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(urun.ad),
+                            const SizedBox(height: 10,),
+                            Text("${urun.fiyat} ₺", style: const TextStyle(fontSize: 20),),
+                            const SizedBox(height: 10,),
+                            ElevatedButton(onPressed: (){
+                              print("${urun.ad} sepete eklendi");
+                            }, child: const Text("Sepet Ekle"),)
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 );
               },
