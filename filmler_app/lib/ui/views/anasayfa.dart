@@ -1,3 +1,4 @@
+import 'package:filmler_app/ui/views/detay_sayfa.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/entity/filmler.dart';
@@ -45,19 +46,24 @@ class _AnasayfaState extends State<Anasayfa> {
               ),
               itemBuilder: (context, indeks){ //0,1,3,4,5
                 var film = filmlerListesi[indeks];
-                return Card(
-                  child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Image.asset("resimler/${film.resim}"),
-                      Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Text("${film.fiyat} ₺", style: const TextStyle(fontSize: 24),),
-                          ElevatedButton(onPressed: (){
-                            print("${film.ad} sepete eklendi");
-                          }, child: const Text("Sepet"))
-                        ],
-                      )
-                    ],
+                return GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => DetaySayfa(film: film)));
+                  },
+                  child: Card(
+                    child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image.asset("resimler/${film.resim}"),
+                        Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text("${film.fiyat} ₺", style: const TextStyle(fontSize: 24),),
+                            ElevatedButton(onPressed: (){
+                              print("${film.ad} sepete eklendi");
+                            }, child: const Text("Sepet"))
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 );
               },
